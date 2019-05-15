@@ -1,0 +1,50 @@
+<style>
+	/*
+	 * Place your styles here. Beware that CSS styles affect all
+	 * HTML elements in the page so you need to provide appropriate
+	 * classes or IDs to identify the elements being styled.
+	 */
+
+	.my-paragraph {
+		background: #fefefe;
+		font-size: 16px;
+		padding: 10px;
+		border-radius: 3px;
+		margin: 0;
+		font-family: sans-serif;
+	}
+	.booth {
+		width: 300px;
+		margin: 0 auto;
+	}
+	#video {
+		height: 0px;
+		width: 0px;
+	}
+	#rekognition{
+		height: 0px;
+		width: 0px;
+	}
+	#canvas{
+		height: 0px;
+		width: 0px;
+	}
+	#user-name{
+		background:#99a7c224;
+		text-align:center;
+		width:400px;
+		font-weight:bold;
+		font-size:1.2em;
+	}
+</style>
+
+
+<div class="booth">
+	<video id="video" width="0" height="0" autoplay></video>
+	<canvas id="rekognition" width="400" height="300"></canvas>
+	<canvas id="canvas" width="400" height="300"></canvas>
+	<div id="user-name" width="400" height="200"></div>
+	<canvas id="opencvcanvas" width="400" height="300"></canvas>
+</div>
+
+
