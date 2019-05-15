@@ -13,6 +13,12 @@
    * Choose Import Assets in the top center menu above the canvas. Search for and then add Cristine.
    * Find Cristine in the Assets panel. Drag and drop the Cristine entity (next to the hexagon icon) onto the canvas.
    
+   
+   
+ ![Dashboard](https://github.com/torrtuga/athena-sumerian-aiml/blob/master/images/agent_screenshot.PNG)
+   
+   
+   
 3. Add State Machine Behavior :
    * In the Entities panel, choose Cristine.
    * Navigate to the Inspector panel on the right and add a State Machine component to Cristine.
@@ -23,6 +29,10 @@
    * Similarly add the other states as shown below and connect the various states actions as shown by using drag n drop.
    * Add *Script Host Success* on Athena Response state.
    * Add *Script User Speech* on Start User Recording state.
+   
+ ![State Machine](https://github.com/torrtuga/athena-sumerian-aiml/blob/master/images/states_machine.PNG)
+ 
+ 
   
 4. Adding HTML Entities :
    * From the Create Entity menu, create a new HTML entity, and then select it.
@@ -51,6 +61,9 @@
     * `pip install vaderSentiment`
     * `sudo apt-get install python3-pip python3-dev nginx`
  4. Let’s check if nginx . has been installed and running. Open your browser and run input your instances public IP . address.
+ 
+ ![Nginx](https://github.com/torrtuga/athena-sumerian-aiml/blob/master/images/nginx_check.PNG)
+ 
  5. Remove the default nginx pages by running the command :
     * `sudo rm /etc/ningx/sites-enabled/default`
     * `sudo rm /etc/nginx/sites-available/default`
@@ -117,4 +130,8 @@
       #use certbot nginx plugin for certificate installation
       sudo certbot --nginx 
       ```
-    * Follow the prompts and enter required details. Refresh your browser after some few min and check that your domain name is secured with htpps
+    * Follow the prompts and enter required details. Refresh your browser after some few min and check that your domain name is secured with https.
+
+PS : Make sure to add your own domain name and AWS Rekognition url in the *script-face-recognition.js*, *script-user-speech.js*, *script-opencv.js*.
+Also, make sure to upload the images provided in the images/language-learn folder to your *html-language.html* and using the respective data ID instead of the one provided to run Sumerian without crashing.
+
