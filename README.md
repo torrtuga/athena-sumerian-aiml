@@ -42,7 +42,7 @@
  ## AIML Dialogue System
  
  1. Create an AWS EC2 instance and select the Ubuntu server.
- 2. Copy the AIML folder to the EC2 server using an FTP service like FileZilla or the command scp which stands for secure copy.
+ 2. Clone the repository.
  3. Install following : 
     * `pip install aiml`
     * `pip install Flask`
@@ -73,3 +73,48 @@
     sudo ln -f -s /etc/nginx/sites-available/brightevents.com /etc/nginx/sites-enabled/mysitename.com
     sudo service nginx restart
     ```
+ 9. Run the app using gunicorn server
+    ```
+    gunicorn run:app
+    ```
+    
+ ## Backend API
+ 
+ 1. Create a domain name.
+ 2. Create an Elastic IP in AWS :
+    * Open AWS route53
+    * Under Networking and content delivery choose route 53, and create a new Hosted Zone with the new domain name you got.
+    * Domain Name should be the name you got and type choose the public Hosted Zone. Create an elastic . IP for that instance. Click on services and click on Elastic IP and click associate new Address to get a new Elastic IP.
+    * Once the IP has been created, you will be presented with a list of IPs, check on the one you’ve just create and click on actions.
+    * Click on associate address to associate that particular address with your instance.
+    * Choose the instance you want to associate the IP with from the listed ones. Assuming you have multiple instances.
+ 3. Point your EC2 to new domain :
+    * Log into your AWS account and assign an elastic IP to your instance if you haven’t done so.
+    * Go to Route53 and create a hosted zone for your domain and set the type to Public Hosted Zone.
+    * Once created, you’ll be presented with 2 default record sets for your domain. In here, take note all of the 4 Nameservers.
+    * Create another record sets for your domain, one with www name and one without it. All pointing to your Elastic IP you set to your EC2 instance. See screenshot below.
+    * Once you’ve have setup the 2 additional record sets, the last step is to just point your domain to use the Nameservers provided by Route53 service.
+    * Then in your domain name account, enter all 4 Nameservers and hit on save button.
+    * In a couple of minutes and you would now be able to access your app in your EC2 instance with the domain you choose.
+ 4. Installing SSL on your new Domain Name :
+    * ssh to your instance and change the file`/etc/nginx/sitesavailable/mydomainname.com` one shown below.
+      ```
+      server {
+      listen 80;
+      server_name www.brightevents.tk brightevents.tk;
+      location / {
+      proxy_pass http://127.0.0.1:8000/;
+      }
+      }
+      ```
+    * Change the server name to your own details and restart nginx server.
+    * Then run the following commands : 
+      ```
+      sudo apt-get install software-properties-common
+      sudo add-apt-repository ppa:certbot/certbot
+      sudo apt-get update
+      sudo apt-get install python-certbot-nginx
+      #use certbot nginx plugin for certificate installation
+      sudo certbot --nginx 
+      ```
+    * Follow the prompts and enter required details. Refresh your browser after some few min and check that your domain name is secured with htpps
