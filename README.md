@@ -70,7 +70,7 @@
  6. Configure nginx to proxy our trafic to port 8000. Create a config file in sites-available and add a symlink to the sites-enabled in nginx.
    ```
    sudo touch /etc/nginx/sites-available/mysitename.com
-  sudo chown -R $USER:$USER /etc/nginx/sites-   available/mysitename.com
+  sudo chown -R $USER:$USER /etc/nginx/sites-available/mysitename.com
   ```
  7. Open the mysitename.com file or whatever you named it and paste the contents below (make sure you give your domain name)
     ```
