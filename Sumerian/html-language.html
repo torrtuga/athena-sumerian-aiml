@@ -5,192 +5,242 @@
 	 * classes or IDs to identify the elements being styled.
 	 */
 
-	.my-paragraph {
-		background: #fefefe;
-		font-size: 16px;
-		padding: 10px;
-		border-radius: 3px;
-		margin: 0;
-		font-family: sans-serif;
-	}
-	#banner {
-	  display: none;
-	  width: 80%;
-	  float: right
-	}
-	#banner2 {
-	  display: none;
-	  width: 80%;
-	  float: right
-	}
-	#banner3 {
-	  display: none;
-	  width: 80%;
-	  float: right
-	}
-	.images {
-	  display: inline-block;
-	  max-width: 20%;
-	  text-align: right;
-	  font-weight: bold;
-      font-size: large;
-      font-style: italic;
-	  /* margin: 0 2.5%; */
-	}
-	#sub-image{
-	 width:155px;
-	 margin-left:40px;
-	}
-	.input-div{
-	 display:none;
-	 /*display:inline-block; */
-	 margin-left:25%;
-	 font-size: larger;
-	 font-weight: bold;
-	}
-	.input-div2{
-	 display:none;
-	 /*display:inline-block; */
-	 margin-left:25%;
-	 font-size: larger;
-	 font-weight: bold;
-	}
-	.input-div3{
-	 display:none;
-	 /*display:inline-block; */
-	 margin-left:25%;
-	 font-size: larger;
-	 font-weight: bold;
-	}
-	
-	.buttonDiv{
-	display:none;
-	/*display:inline-block;*/
-	margin-left: 25%;
-    margin-top: 2%;
 
-	}
-	.buttonDiv2{
-	display:none;
-	/*display:inline-block;*/
-	margin-left: 25%;
-    margin-top: 2%;
-	}
-	.buttonDiv3{
-	display:none;
-	/*display:inline-block;*/
-	margin-left: 25%;
-    margin-top: 2%;
-	}
+
+.container {
+  width: 600px;
+  height: 600px;
+  float: right;
+  padding-top: 50%;
+  padding-right: 30%;
+  display: none;
+}
+
+
+.images-vertical {
+  width: 600px;
+  height: 500px;
+  background-color: #D3D3D3	;
+  display: flex;
+  flex-direction: column;
+}
+
+.images-horizontal {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image-single {
+  display: flex;
+  width: 200px;
+  height: 400px;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-single > img {
+  height: 30%;
+  padding-top: inherit
+}
+
+.image-text{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.button-space {
+  width: 600px;
+  height: 50px;
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+.assesContainer {
+  width: 600px;
+  float: right;
+  padding-right: 10%;
+  display: none;
+}
+
+.textHead{
+  text-align:center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 30%;
+}
+
+.testImage{
+	width: 200px;
+	height: 100px;
+	padding-top: 20px;
+}
+
+.submitDiv{
+	padding-top:20px;
+}
+
+.inputBox{
+  background-color: #3CBC8D;
+  color: white;
+}
+
+.submitButton{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
 	
-	#button{
-		background-color: black;
-		color: white;
-		border: none;
-	}
+}
+
+.assesImage{
+  width:600px;
+  float: right;
+  padding-right: 30%;
+  display: none;
+  /*background-color: blue;*/
+}
+
+.imageBox{
+ height: 200px;
+ width: 400px;
+ /*background-color: pink;*/
+ display: flex;
+ flex-direction: row;
+}
+
+.imageOption{
+ 	height: 150px;
+	padding: 10px;
+}
+
+.imageHead{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+
 </style>
 
 
-<div id="banner">
-        <div class="images">
-            <img id="sub-image" class="cat" data-id="337f8486be48f6ae2162d97c0bbef8e50aee86b9.jpg"/>
-			le chat
-        </div>
+<div class="container" id="containerID">
 
-        <div class="images">
-            <img id="sub-image" class="girl" data-id="97becc8201a325d433f477bff2008c6517c38359.jpg"/>
-			la fille
-        </div>
-
-        <div class="images">
-            <img id="sub-image" class="woman" data-id="9ae290bbde9e8ff9376f552609acc1adcaecaef9.jpg"/>
-			la femme
-        </div>
-		
-		<div class="images">
-            <img id="sub-image" data-id="9ae290bbde9e8ff9376f552609acc1adcaecaef9.jpg"   style="visibility: hidden;"/>
-			
-        </div>
-</div>
-
-<div class="input-div" id="inputDiv">
-	What is "The Woman" in French ?
-	<input type="text" id="inputbox">
-</div>
-<div class="buttonDiv" id="buttonDiv">
-	<button class="button" id="button" type="button">Check</button>
-</div>
-
-<div id="banner2">
-        <div class="images">
-            <img id="sub-image" class="horse" data-id="8aa2367780dd8537cd60e21c9b99cf23b5238142.jpg"/>
-			le chaval
-        </div>
-
-        <div class="images">
-            <img id="sub-image" class="boy" data-id="b04c21a6f4d790aa21c7a74325290f1c925ac22b.jpg"/>
-			le garcon
-        </div>
-
-        <div class="images">
-            <img id="sub-image" class="man" data-id="1f4071a430ae541ae4ad1a2c6195fc5d7cd08a16.jpg"/>
-			l' homme
-        </div>
-		
-		<div class="images">
-            <img id="sub-image" data-id="1f4071a430ae541ae4ad1a2c6195fc5d7cd08a16.jpg"   style="visibility: hidden;"/>
-			
-        </div>
-</div>
-
-<div class="input-div2" id="inputDiv2">
-	What is "The horse" in French ?
-	<input type="text" id="inputbox2">
-</div>
-<div class="buttonDiv2" id="buttonDiv2">
-	<button class="button" id="button" type="button">Check</button>
+  <div class="images-vertical">
+  
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img1" alt="le garçon" data-id="b04c21a6f4d790aa21c7a74325290f1c925ac22b.jpg">
+        <div class="image-text" id="one">le garçon (a boy)</div>
+      </div>
+      <div class="image-single">
+        <img id="img2" alt="la fille" data-id="97becc8201a325d433f477bff2008c6517c38359.jpg">
+        <div class="image-text" id="two">la fille (a girl)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img3" alt="la femme" data-id="9ae290bbde9e8ff9376f552609acc1adcaecaef9.jpg">
+        <div class="image-text" id="three">la femme (a woman)</div>
+      </div>
+      <div class="image-single">
+        <img id="img4" alt="l'homme" data-id="1f4071a430ae541ae4ad1a2c6195fc5d7cd08a16.jpg">
+        <div class="image-text" id="four">l'homme (a man)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img5" alt="l'étudiant" data-id="d2b4a607275c65db25a5d5e824bcf35c8fc00f4a.jpg">
+        <div class="image-text" id="five">l'étudiant (a student)</div>
+      </div>
+      <div class="image-single">
+        <img id="img6" alt="deux femme" data-id="99e54e46969a9d63c54078f2ec59300896bb7ab2.jpg">
+        <div class="image-text" id="six">deux femme (two women)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-space">
+    <button id="buttonID" class="button" style="vertical-align:middle"><span>Next </span></button>
+  </div>
+  
 </div>
 
 
-<div id="banner3">
-        <div class="images">
-            <img id="sub-image" class="dog" data-id="466ffa59c1a06e2324fbb64bebede6823f5a0a2a.jpg"/>
-			le chien
-        </div>
-
-        <div class="images">
-            <img id="sub-image" class="plane" data-id="f69a4f20845607b25c4be90ee6ecf667d3134ac3.jpg"/>			
-			l'avion
-        </div>
-
-        <div class="images">
-            <img id="sub-image" class="student" data-id="d2b4a607275c65db25a5d5e824bcf35c8fc00f4a.jpg"/>		
-			l'étudiant
-        </div>
-		
-		<div class="images">
-            <img id="sub-image" data-id="d2b4a607275c65db25a5d5e824bcf35c8fc00f4a.jpg"   style="visibility: hidden;"/>
-			
-        </div>
-</div>
-
-<div class="input-div3" id="inputDiv3">
-	What is "The Dog" in French ?
-	<input type="text" id="inputbox3">
-</div>
-<div class="buttonDiv3" id="buttonDiv3">
-	<button class="button" id="button" type="button">Check</button>
+<div class="assesContainer" id="assesContainerID">
+	
+	<div class="textHead">Tell the French word for the following</div>
+	<div>
+		<img id="testImageID" class="testImage" data-id="b04c21a6f4d790aa21c7a74325290f1c925ac22b.jpg">
+	</div>
+	<div class="submitDiv">
+		<input id="inputboxID" class="inputbox" type="text">
+		<button id="submitButtonID" class="submitButton">Submit</button>
+	</div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
+<div class="assesImage" id="assesImageID">
+	
+	<div class="imageBox">
+		<img class="imageOption" id="image1" alt="la fille" data-id="97becc8201a325d433f477bff2008c6517c38359.jpg">
+		<img class="imageOption" id="image2" alt="un chien" data-id="466ffa59c1a06e2324fbb64bebede6823f5a0a2a.jpg">
+		<img class="imageOption" id="image3" alt="un cheval" data-id="8aa2367780dd8537cd60e21c9b99cf23b5238142.jpg">
+	</div>
+	
+	<div class="imageHead">Select the image for the word <span id="spanTextID">un chien</span>    </div>
+</div>
