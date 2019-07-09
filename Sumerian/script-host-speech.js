@@ -146,6 +146,7 @@ function enter(args, ctx) {
 				if(ctx.entityData.hostResponse == "neg"){
 					ctx.entityData.hostResponse = "Okay, lets continue our conversation";
 					ctx.worldData.userSecondResponseFlag = 0;
+					transitToNewAimlDialogue(ctx);
 				}else{
 					languageLearnModule(ctx);
 					resetAimlDialogue(ctx);
@@ -294,7 +295,7 @@ function readProgress(ctx){
 function resetAimlDialogue(ctx){
 	var xhr = new XMLHttpRequest();
 	var urlDomain = "https://www.torrtuga.xyz/kernel_reset";
-	var url = urlDomain
+	var url = urlDomain;
 	xhr.open('GET',url,true);
 	xhr.send();
 	xhr.onreadystatechange = (e) => {
@@ -302,6 +303,20 @@ function resetAimlDialogue(ctx){
 			response = xhr.responseText;
 			console.log("Response after resetting kernel " + response)
 		}
+	}
+}
+
+function transitToNewAimlDialogue(ctx){
+	var xhr = new XMLHttpRequest();
+	var urlDomain = "https://www.torrtuga.xyz/transit_new_aiml";
+	var url = urlDomain;
+	xhr.open('GET',url,true);
+	xhr.send();
+	xhr.onreadystatechange = (e) => {
+		if(xhr.readyState ===4 && xhr.status==200){
+			response = xhr.responseText;
+			console.log("Response after tranisition to new AIML " + response);
+		} 
 	}
 }
 

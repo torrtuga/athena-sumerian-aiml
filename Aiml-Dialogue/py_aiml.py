@@ -171,6 +171,11 @@ def kernel_reset():
     k.bootstrap(learnFiles="std-startup.aiml",commands="load aiml b")
     return "success"
 
+@app.route('/transit_new_aiml')
+def transit_aiml():
+    k.bootstrap(learnFiles="std-startup-two.aiml",commands="load aiml c")
+    return "success"
+
 @app.route('/sentiment')
 def sentiment_userResponse():
     userResponse = request.args.get('user-sentiment')

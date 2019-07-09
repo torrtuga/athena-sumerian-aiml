@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="1.0.1" encoding="UTF-8">
+
+
+<topic name="STARTSECONDAIML">
+		<category>
+			<pattern>*</pattern>
+			<template>
+				Inside second AIML Script
+			</template>
+		</category>
+</topic>
+
+</aiml>
+

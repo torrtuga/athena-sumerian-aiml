@@ -1,0 +1,14 @@
+<aiml version="1.0.1" encoding="UTF-8">
+    <!-- std-startup-two.xml -->
+    <category>
+        <pattern>LOAD AIML C</pattern>
+        <!-- This learn an aiml file -->
+        <template>
+            
+            <learn>second-aiml.aiml</learn>
+            <learn>initiate-two.aiml</learn>
+            <srai>START SECOND AIML</srai>
+        </template> 
+    </category>
+
+</aiml>
