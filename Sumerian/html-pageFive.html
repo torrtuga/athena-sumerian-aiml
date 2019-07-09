@@ -1,0 +1,262 @@
+<style>
+	/*
+	 * Place your styles here. Beware that CSS styles affect all
+	 * HTML elements in the page so you need to provide appropriate
+	 * classes or IDs to identify the elements being styled.
+	 */
+
+
+
+.containerFive {
+  width: 600px;
+  height: 600px;
+  float: right;
+  padding-top: 30%;
+  padding-right: 40%;
+  display: none;
+  margin-right: 10%
+}
+
+
+.images-vertical {
+  width: 500px;
+  height: 500px;
+  background-color: #D3D3D3	;
+  display: flex;
+  flex-direction: column;
+}
+
+.images-horizontal {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image-single {
+  display: flex;
+  width: 200px;
+  height: 400px;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-single > img {
+  height: 30%;
+  padding-top: inherit
+}
+
+.image-text{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.button-space {
+  width: 500px;
+  height: 80px;
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttonClose {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.buttonClose span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonClose span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonClose:hover span {
+  padding-right: 25px;
+}
+
+.buttonClose:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.assesContainer {
+  width: 600px;
+  float: right;
+  padding-right: 10%;
+  display: none;
+}
+
+.textHead{
+  text-align:center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 30%;
+}
+
+.testImage{
+	width: 200px;
+	height: 100px;
+	padding-top: 20px;
+}
+
+.submitDiv{
+	padding-top:20px;
+}
+
+.inputBox{
+  background-color: #3CBC8D;
+  color: white;
+}
+
+.submitButton{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+	
+}
+
+.assesImage{
+  width:600px;
+  float: right;
+  padding-right: 30%;
+  display: none;
+  /*background-color: blue;*/
+}
+
+.imageBox{
+ height: 200px;
+ width: 400px;
+ /*background-color: pink;*/
+ display: flex;
+ flex-direction: row;
+}
+
+.imageOption{
+ 	height: 150px;
+	padding: 10px;
+}
+
+.imageHead{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+</style>
+
+<div class="containerFive" id="containerIDFive">
+
+  <div class="images-vertical">
+  
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img56" alt="un parc" data-id="cbd3ea55a59cf46458dcff66101510517301c9cd.jpg">
+        <div class="image-text" id="six5">un parc (a park)</div>
+      </div>
+      <div class="image-single">
+        <img id="img55" alt="un aéroport" data-id="607ed8217ef529ef17ec18a1a1bf4fff7e1492ce.jpg">
+        <div class="image-text" id="five5">un aéroport (an airport)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img53" alt="un hôpital" data-id="9e14c78b0f0601eb8d1569978c4905a7aa02fe8c.jpg">
+        <div class="image-text" id="three5">un hôpital (a hospital)</div>
+      </div>
+      <div class="image-single">
+        <img id="img54" alt="un château" data-id="5fe3dd9a13231fb3550446d5cf4a75b5ab366353.jpg">
+        <div class="image-text" id="four5">un château (a castle)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img52" alt="une boulangerie" data-id="04621df8723dad37722ca24a9e0ce8091fc41b40.jpg">
+        <div class="image-text" id="two5">une boulangerie(a bakery)</div>
+      </div>
+      <div class="image-single">
+        <img id="img51" alt="un appartement" data-id="6142fc0ba168737d785cb401e177a77b4b3e45fd.jpg">
+        <div class="image-text" id="one5">un appartement(an apartment)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-space">
+    <button id="buttonIDFive" class="button" style="vertical-align:middle"><span>Next </span></button>
+	<button id="buttonCloseIDFive" class="buttonClose" style="vertical-align:middle"><span>Close </span></button>
+  </div>
+</div>
+

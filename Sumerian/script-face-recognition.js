@@ -1,5 +1,5 @@
 //Script to handle AWS Rekognition part
-//Make sure to add the right URL for AWS Rekognition
+
 'use strict';
 
 // The sumerian object can be used to access Sumerian engine
@@ -109,8 +109,9 @@ function face_rekognition(video,context,width,height,ctx){
 		self.addEventListener('message', (e) => {
 
 			var base64Data = e.data;
+			console.log("Base64 Data : " + base64Data)
 			const Http = new XMLHttpRequest();
-			const url='https://yoururl.execute-api.us-east-1.amazonaws.com/prod';//add your aws url
+			const url='https://sar8drlsgj.execute-api.us-east-1.amazonaws.com/prod';//aws url
 			Http.open("POST", url,true); //true for async call
 
 			Http.setRequestHeader("Accept","application/json");
@@ -121,7 +122,7 @@ function face_rekognition(video,context,width,height,ctx){
 					console.log("Rekog Result : " + Http.responseText)
 					var response = JSON.parse(Http.responseText);
 					try{
-						var user = response['user'];
+						var user = response;
 						console.log("User : " + user);
 						self.postMessage(user)
 					}catch(e){
@@ -142,13 +143,21 @@ function face_rekognition(video,context,width,height,ctx){
 		if(!(rect == undefined || rect == null || rect['neighbors']<2)){
 			worker.postMessage(base64Data)
 			var workerEventHandlers = (e) => { 
-			var data = e.data;
-			if(data != "no user" && data!=undefined){
+			var data_raw = e.data;
+			var data = data_raw.split('.')[0];
+			ctx.worldData.newUserFlagTwo = false;
+			if(data != "no-user" && data!=undefined){
 				document.getElementById('user-name').innerHTML= "User : " + data;
 				dummyCall(ctx,data);
+				ctx.worldData.numIteration = 1; // for asking user again if (s)he wants to learn again
+				ctx.worldData.userSecondResponseFlag = 0;
 			 }else{
+				 ctx.worldData.base64Data = base64Data;
 				 ctx.worldData.userName = "complete";
-				 ctx.transitions.success();
+		  		 ctx.transitions.success();
+				 ctx.worldData.numIteration = 1; //For user's response to again ask languagelearningmodule
+				 ctx.worldData.userSecondResponseFlag = 0;
+				 
 			 }
 			}
 			worker.addEventListener('message', workerEventHandlers, false);
@@ -165,7 +174,7 @@ function dummyCall(ctx,data){
 	if(ctx.worldData.userName==undefined){
 		ctx.worldData.userName = data;
 		var xhr = new XMLHttpRequest();
-		var urlDomain = "https://www.xyz.xyz/"; //add your domain name
+		var urlDomain = "https://www.torrtuga.xyz/";
 		var userResponse = "My name is " + data;
 		console.log("Face Recog : " + userResponse)
 		var url = urlDomain + "?user-response=" + userResponse;
@@ -182,6 +191,37 @@ function dummyCall(ctx,data){
 			}
 		}
 	}
+	
+}
+
+function addImageToCollection(ctx){
+	
+	var base64Data = arqam;
+    // console.log("Base64 Data : " + base64Data)
+    const Http = new XMLHttpRequest();
+    const url='https://aaceb6t224.execute-api.us-east-1.amazonaws.com/prod';//aws url
+    Http.open("POST", url,true); //true for async call
+
+    Http.setRequestHeader("Accept","application/json");
+    Http.setRequestHeader("Content-Type","application/json");
+
+    Http.onreadystatechange = function() {
+      if(Http.readyState == 4 && Http.status == 200) {
+        console.log("Rekog Result : " + Http.responseText)
+        var response = JSON.parse(Http.responseText);
+        try{
+          var user = response;
+          console.log("User : " + user);
+          self.postMessage(user);
+		  ctx.worldData.userName = "complete";
+		  ctx.transitions.success();
+        }catch(e){
+          console.log("error : " + e)
+        }
+
+      }
+    }
+    Http.send(JSON.stringify(base64Data));
 	
 }
 

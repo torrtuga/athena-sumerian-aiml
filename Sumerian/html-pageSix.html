@@ -1,0 +1,263 @@
+<style>
+	/*
+	 * Place your styles here. Beware that CSS styles affect all
+	 * HTML elements in the page so you need to provide appropriate
+	 * classes or IDs to identify the elements being styled.
+	 */
+
+
+
+.containerSix {
+  width: 600px;
+  height: 600px;
+  float: right;
+  padding-top: 30%;
+  padding-right: 40%;
+  display: none;
+  margin-right: 10%;
+}
+
+
+.images-vertical {
+  width: 500px;
+  height: 500px;
+  background-color: #D3D3D3	;
+  display: flex;
+  flex-direction: column;
+}
+
+.images-horizontal {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image-single {
+  display: flex;
+  width: 200px;
+  height: 400px;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-single > img {
+  height: 30%;
+  padding-top: inherit
+}
+
+.image-text{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.button-space {
+  width: 600px;
+  height: 80px;
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttonClose {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.buttonClose span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonClose span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonClose:hover span {
+  padding-right: 25px;
+}
+
+.buttonClose:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.assesContainer {
+  width: 600px;
+  float: right;
+  padding-right: 10%;
+  display: none;
+}
+
+.textHead{
+  text-align:center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 30%;
+}
+
+.testImage{
+	width: 200px;
+	height: 100px;
+	padding-top: 20px;
+}
+
+.submitDiv{
+	padding-top:20px;
+}
+
+.inputBox{
+  background-color: #3CBC8D;
+  color: white;
+}
+
+.submitButton{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+	
+}
+
+.assesImage{
+  width:600px;
+  float: right;
+  padding-right: 30%;
+  display: none;
+  /*background-color: blue;*/
+}
+
+.imageBox{
+ height: 200px;
+ width: 400px;
+ /*background-color: pink;*/
+ display: flex;
+ flex-direction: row;
+}
+
+.imageOption{
+ 	height: 150px;
+	padding: 10px;
+}
+
+.imageHead{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+</style>
+
+<div class="containerSix" id="containerIDSix">
+
+  <div class="images-vertical">
+  
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img66" alt="un livre" data-id="21574a987c56a1f76a6218d0e1ab82e3a0b46738.jpg">
+        <div class="image-text" id="six6">un livre (a book)</div>
+      </div>
+      <div class="image-single">
+       <img id="img65" alt="un bus" data-id="9a0ad5a0af85fca6d6602e3083a68319522afbae.jpg">
+       <div class="image-text" id="five6">un bus (a bus)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img64" alt="une tasse" data-id="1f7cacaee6458f237319b69639458d01c90830a4.jpg">
+        <div class="image-text" id="four6">une tasse (a cup)</div>
+      </div>
+      <div class="image-single">
+        <img id="img63" alt="une plante" data-id="57bd577a608d4043872f559ac0af6a304728ff4a.jpg">
+        <div class="image-text" id="three6">une plante (a plant)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img62" alt="une table" data-id="b59d69d85b7cf2d63f54e99c65280fad3d6b16e2.jpg">
+        <div class="image-text" id="two6">une table (a table)</div>
+      </div>
+      <div class="image-single">
+        <img id="img61" alt="une bicyclette" data-id="12fa291bc80d67c0f49304485a2a4c40b07ecc0f.jpg">
+        <div class="image-text" id="one6">une bicyclette (a bicycle)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-space">
+    <button id="buttonIDSix" class="button" style="vertical-align:middle"><span>Next </span></button>
+	<button id="buttonCloseIDSix" class="buttonClose" style="vertical-align:middle"><span>Close </span></button>
+  </div>
+  
+</div>
+

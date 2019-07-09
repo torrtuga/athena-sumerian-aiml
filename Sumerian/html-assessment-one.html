@@ -1,0 +1,299 @@
+<style>
+	/*
+	 * Place your styles here. Beware that CSS styles affect all
+	 * HTML elements in the page so you need to provide appropriate
+	 * classes or IDs to identify the elements being styled.
+	 */
+
+
+
+.container {
+  width: 600px;
+  height: 600px;
+  float: right;
+  padding-top: 50%;
+  padding-right: 30%;
+  display: none;
+}
+
+
+.images-vertical {
+  width: 600px;
+  height: 500px;
+  background-color: #D3D3D3	;
+  display: flex;
+  flex-direction: column;
+}
+
+.images-horizontal {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image-single {
+  display: flex;
+  width: 200px;
+  height: 400px;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-single > img {
+  height: 30%;
+  padding-top: inherit
+}
+
+.image-text{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.button-space {
+  width: 600px;
+  height: 50px;
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+.assesContainer {
+  width: 600px;
+  float: right;
+  padding-right: 10%;
+  display: none;
+}
+
+.textHead{
+  text-align:center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 30%;
+}
+
+.testImage{
+	width: 200px;
+	height: 100px;
+	padding-top: 20px;
+}
+
+.submitDiv{
+	padding-top:20px;
+}
+
+.inputBox{
+  background-color: #3CBC8D;
+  color: white;
+}
+
+.submitButton{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: block;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+	
+}
+
+.assesImage{
+  width:600px;
+  float: right;
+  padding-right: 30%;
+  display: none;
+  /*background-color: blue;*/
+}
+
+.imageBox{
+ height: 200px;
+ width: 400px;
+ /*background-color: pink;*/
+ display: flex;
+ flex-direction: row;
+}
+
+.imageOption{
+ 	height: 150px;
+	padding: 10px;
+}
+
+.imageHead{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.assesText{
+  width: 600px;
+  float: right;
+  padding-right: 10%;
+  display: none;
+}
+
+.assesTextHead{
+  text-align:left;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 30%;
+}
+
+.englishText{
+  text-align:left;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top:2%;
+}
+
+.submitFrenchButton{
+
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: block;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+
+}
+
+.submitText{
+  padding-top:20px;
+}
+
+
+</style>
+
+
+<div class="container" id="containerID">
+
+  <div class="images-vertical">
+  
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img1" alt="le garçon" data-id="12fa291bc80d67c0f49304485a2a4c40b07ecc0f.jpg">
+        <div class="image-text" id="one">le garçon (a boy)</div>
+      </div>
+      <div class="image-single">
+        <img id="img2" alt="la fille" data-id="12fa291bc80d67c0f49304485a2a4c40b07ecc0f.jpg">
+        <div class="image-text" id="two">la fille (a girl)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img3" alt="la femme" data-id="12fa291bc80d67c0f49304485a2a4c40b07ecc0f.jpg">
+        <div class="image-text" id="three">la femme (a woman)</div>
+      </div>
+      <div class="image-single">
+        <img id="img4" alt="l'homme" data-id="12fa291bc80d67c0f49304485a2a4c40b07ecc0f.jpg">
+        <div class="image-text" id="four">l'homme (a man)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img5" alt="l'étudiant" data-id="12fa291bc80d67c0f49304485a2a4c40b07ecc0f.jpg">
+        <div class="image-text" id="five">l'étudiant (a student)</div>
+      </div>
+      <div class="image-single">
+        <img id="img6" alt="deux femme" data-id="12fa291bc80d67c0f49304485a2a4c40b07ecc0f.jpg">
+        <div class="image-text" id="six">deux femme (two women)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-space">
+    <button id="buttonID" class="button" style="vertical-align:middle"><span>Next </span></button>
+  </div>
+  
+</div>
+
+
+<div class="assesContainer" id="assesContainerIDOne">
+	<div class="textHead">Tell the French word for the following</div>
+	<div>
+		<img id="testImageIDOne" class="testImage" data-id="9adcc8dd69400ec418ff51fbd39f5d6c2471f478.jpg">
+	</div>
+	<div class="submitDiv">
+		<input id="inputboxIDOne" class="inputbox" type="text">
+		<button id="submitButtonIDOne" class="submitButton">Submit</button>
+	</div>
+</div>
+
+
+
+<div class="assesText" id="assesTextId">
+	<div class="assesTextHead">Write French for the following</div>
+	<div class="englishText" id="englishTextId">Un homme et une femme</div>
+	<div class="submitText">
+		<input class="englishInput" id="englishInputID">
+		<button class="submitFrenchButton" id="submitFrenchButtonID">Submit</button>
+	</div>
+	
+</div>
+
+
+
+
+<div class="assesImage" id="assesImageIDOne">
+	<div class="imageBox">
+		<img class="imageOption" id="image11" alt="un grand-père" data-id="d7a3ef0dc138cb7a9c7504d73c970ca59718157a.jpg">
+		<img class="imageOption" id="image21" alt="une fille" data-id="97becc8201a325d433f477bff2008c6517c38359.jpg">
+		<img class="imageOption" id="image31" alt="un chat" data-id="337f8486be48f6ae2162d97c0bbef8e50aee86b9.jpg">
+	</div>
+	<div class="imageHead">Identify the picture corresponding to <span id="spanTextIDOne">un grand-père</span></div>
+</div>
+
+
+
+

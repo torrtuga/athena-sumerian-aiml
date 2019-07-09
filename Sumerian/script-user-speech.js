@@ -54,19 +54,40 @@ function enter(args, ctx) {
 	recognition.onresult = (event) => {
 		ctx.worldData.transcript = "User : " + event.results[0][0].transcript;
 		if(event.results[0].isFinal){
+			var url;
+			var urlDomain;
 			var xhr = new XMLHttpRequest();
-			var urlDomain = "https://www.torrtuga.xyz/";
+			
 			var userResponse = event.results[0][0].transcript;
+			ctx.entityData.userResponse = userResponse;
 			console.log("User Resp : " + userResponse);
-			var url = urlDomain + "?user-response=" + userResponse;
+			if(ctx.worldData.userSecondResponseFlag == 1){
+				urlDomain = "https://www.torrtuga.xyz/sentiment";
+				url = urlDomain + "?user-sentiment=" + userResponse
+			}else{
+				urlDomain = "https://www.torrtuga.xyz/";
+				url = urlDomain + "?user-response=" + userResponse;
+			}
 			xhr.open('GET',url,true);
-			xhr.send();
-			xhr.onreadystatechange = (e) => {
-				if(xhr.readyState == 4 && xhr.status==200){
-					ctx.entityData.hostResponse = xhr.responseText;
-					console.log("response text : ", ctx.entityData.hostResponse);
-					ctx.worldData.allowSpeech = false;
-					ctx.transitions.success();
+			if(userResponse.includes("goodbye") ||
+			  	userResponse.includes("bye") ||
+			  	userResponse.includes("see you") ||
+			  	userResponse.includes("that's all")){
+				resetAimlDialogue(ctx);
+				speakEnglish(ctx,"Good Bye!, It was lovely talking to you")
+
+			}else{
+				xhr.send();
+				xhr.onreadystatechange = (e) => {
+					if(xhr.readyState == 4 && xhr.status==200){
+						ctx.worldData.newUserFlagTwo = true;
+						ctx.entityData.hostResponse = xhr.responseText;
+						console.log("response text : ", ctx.entityData.hostResponse);
+						ctx.worldData.allowSpeech = false;
+						ctx.worldData.numIteration = ctx.worldData.numIteration+1;
+						console.log("Iterator value = " + ctx.worldData.numIteration)
+						ctx.transitions.success();
+					}
 				}
 			}
 		}
@@ -80,6 +101,40 @@ function enter(args, ctx) {
 // 	console.log("Inside User Speech")
 // 	ctx.entityData.hostResponse = "That's great, I love that";
 // 	ctx.transitions.success()
+}
+
+function resetAimlDialogue(ctx){
+	var xhr = new XMLHttpRequest();
+	var urlDomain = "https://www.torrtuga.xyz/kernel_reset";
+	var url = urlDomain
+	xhr.open('GET',url,true);
+	xhr.send();
+	xhr.onreadystatechange = (e) => {
+		if(xhr.readyState == 4 && xhr.status==200){
+			response = xhr.responseText;
+			console.log("Response after resetting kernel " + response)
+		}
+	}
+}
+
+
+function speakEnglish(ctx,text){
+	const speechComponent = ctx.entity.getComponent('SpeechComponent');
+	const speech = new sumerian.Speech();
+
+	speechComponent.addSpeech(speech);
+	
+	speech.updateConfig({
+		body: '<speak>' + text + '</speak>',
+		voice: 'Amy'
+	});
+	ctx.speak = () => {
+		speech.play().then(() => {
+			location.reload();
+		});
+	}
+	ctx.speak();
+	
 }
 	
 // When used in a ScriptAction, called when a state is exited.

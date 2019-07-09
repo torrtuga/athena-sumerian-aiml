@@ -1,0 +1,264 @@
+<style>
+	/*
+	 * Place your styles here. Beware that CSS styles affect all
+	 * HTML elements in the page so you need to provide appropriate
+	 * classes or IDs to identify the elements being styled.
+	 */
+
+
+
+.containerTwo {
+  width: 600px;
+  height: 600px;
+  float: right;
+  padding-top: 30%;
+  padding-right: 40%;
+  display: none;
+  margin-right: 10%
+}
+
+
+.images-vertical {
+  width: 500px;
+  height: 500px;
+  background-color: #D3D3D3	;
+  display: flex;
+  flex-direction: column;
+}
+
+.images-horizontal {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image-single {
+  display: flex;
+  width: 200px;
+  height: 400px;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-single > img {
+  height: 30%;
+  padding-top: inherit
+}
+
+.image-text{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.button-space {
+  width: 500px;
+  height: 80px;
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttonClose {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.buttonClose span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonClose span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonClose:hover span {
+  padding-right: 25px;
+}
+
+.buttonClose:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.assesContainer {
+  width: 600px;
+  float: right;
+  padding-right: 10%;
+  display: none;
+}
+
+.textHead{
+  text-align:center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 30%;
+}
+
+.testImage{
+	width: 200px;
+	height: 100px;
+	padding-top: 20px;
+}
+
+.submitDiv{
+	padding-top:20px;
+}
+
+.inputBox{
+  background-color: #3CBC8D;
+  color: white;
+}
+
+.submitButton{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+	
+}
+
+.assesImage{
+  width:600px;
+  float: right;
+  padding-right: 30%;
+  display: none;
+  /*background-color: blue;*/
+}
+
+.imageBox{
+ height: 200px;
+ width: 400px;
+ /*background-color: pink;*/
+ display: flex;
+ flex-direction: row;
+}
+
+.imageOption{
+ 	height: 150px;
+	padding: 10px;
+}
+
+.imageHead{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+</style>
+
+<div class="containerTwo" id="containerIDTwo">
+
+  <div class="images-vertical">
+  
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img21" alt="
+un bébé" data-id="413a07813701b9f850c7b30a3056f08c53879917.jpg">
+        <div class="image-text" id="one2">
+un bébé (a baby)</div>
+      </div>
+      <div class="image-single">
+        <img id="img22" alt="un garçon" data-id="b04c21a6f4d790aa21c7a74325290f1c925ac22b.jpg">
+        <div class="image-text" id="two2">un garçon (a boy)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img23" alt="une fille" data-id="97becc8201a325d433f477bff2008c6517c38359.jpg">
+        <div class="image-text" id="three2">une fille (a girl)</div>
+      </div>
+      <div class="image-single">
+        <img id="img24" alt="un homme" data-id="1f4071a430ae541ae4ad1a2c6195fc5d7cd08a16.jpg">
+        <div class="image-text" id="four2">un homme (a man)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img25" alt="un étudiant" data-id="d2b4a607275c65db25a5d5e824bcf35c8fc00f4a.jpg">
+        <div class="image-text" id="five2">un étudiant (a student)</div>
+      </div>
+      <div class="image-single">
+        <img id="img26" alt="une femme" data-id="9ae290bbde9e8ff9376f552609acc1adcaecaef9.jpg">
+        <div class="image-text" id="six2">une femme (a woman)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-space">
+    <button id="buttonIDTwo" class="button" style="vertical-align:middle"><span>Next </span></button>
+	<button id="buttonCloseIDTwo" class="buttonClose" style="vertical-align:middle"><span>Close </span></button>
+  </div>
+</div>
+

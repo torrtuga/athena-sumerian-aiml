@@ -75,7 +75,7 @@ function face_rekognition(video,context,width,height,ctx){
 
 			var base64Data = e.data;
 			const Http = new XMLHttpRequest();
-			const url='https://yourURL.execute-api.us-east-1.amazonaws.com/prod';//add your aws rekognition url
+			const url='https://sar8drlsgj.execute-api.us-east-1.amazonaws.com/prod';//aws url
 			Http.open("POST", url,true); //true for async call
 
 			Http.setRequestHeader("Accept","application/json");

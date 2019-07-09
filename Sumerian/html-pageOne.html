@@ -1,0 +1,262 @@
+<style>
+	/*
+	 * Place your styles here. Beware that CSS styles affect all
+	 * HTML elements in the page so you need to provide appropriate
+	 * classes or IDs to identify the elements being styled.
+	 */
+
+
+
+.containerOne {
+  width: 600px;
+  height: 600px;
+  float: right;
+  padding-top: 30%;
+  padding-right: 40%;
+  display: none;
+  margin-right: 10%
+}
+
+
+.images-vertical {
+  width: 500px;
+  height: 500px;
+  background-color: #D3D3D3	;
+  display: flex;
+  flex-direction: column;
+}
+
+.images-horizontal {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.image-single {
+  display: flex;
+  width: 200px;
+  height: 400px;
+  flex-direction: column;
+  padding: 20px;
+  text-align: center;
+}
+
+.image-single > img {
+  height: 30%;
+  padding-top: inherit
+}
+
+.image-text{
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.button-space {
+  width: 500px;
+  height: 80px;
+  background-color: #D3D3D3;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+.buttonClose {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 25px;
+  
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+}
+
+.buttonClose span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.buttonClose span: after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.buttonClose:hover span {
+  padding-right: 25px;
+}
+
+.buttonClose:hover span: after {
+  opacity: 1;
+  right: 0;
+}
+
+.assesContainer {
+  width: 600px;
+  float: right;
+  padding-right: 10%;
+  display: none;
+}
+
+.textHead{
+  text-align:center;
+  font-size: 25px;
+  font-weight: bold;
+  padding-right: 30%;
+}
+
+.testImage{
+	width: 200px;
+	height: 100px;
+	padding-top: 20px;
+}
+
+.submitDiv{
+	padding-top:20px;
+}
+
+.inputBox{
+  background-color: #3CBC8D;
+  color: white;
+}
+
+.submitButton{
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 17px;
+  width: 75px;
+  cursor: pointer;
+  margin: 5px;
+  float: center;
+	
+}
+
+.assesImage{
+  width:600px;
+  float: right;
+  padding-right: 30%;
+  display: none;
+  /*background-color: blue;*/
+}
+
+.imageBox{
+ height: 200px;
+ width: 400px;
+ /*background-color: pink;*/
+ display: flex;
+ flex-direction: row;
+}
+
+.imageOption{
+ 	height: 150px;
+	padding: 10px;
+}
+
+.imageHead{
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+</style>
+
+<div class="containerOne" id="containerIDOne">
+
+  <div class="images-vertical">
+  
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img11" alt="une mère" data-id="9adcc8dd69400ec418ff51fbd39f5d6c2471f478.jpg">
+        <div class="image-text" id="one1">une mère (a mother)</div>
+      </div>
+      <div class="image-single">
+        <img id="img12" alt="une femme" data-id="38cef2f90750990fa6d3bb6b3921a8aafdc54e94.jpg">
+        <div class="image-text" id="two1">une femme (a wife)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img13" alt="une famille" data-id="612ba1af8af8be69de58cf9a5555608ab07fecc8.jpg">
+        <div class="image-text" id="three1">une famille (a family)</div>
+      </div>
+      <div class="image-single">
+        <img id="img14" alt="un père" data-id="da9d16b516ab892995e139cfa88037114fbb68c9.jpg">
+        <div class="image-text" id="four1">un père (a father)</div>
+      </div>
+    </div>
+    <div class="images-horizontal">
+      <div class="image-single">
+        <img id="img15" alt="une grand-mère" data-id="6ed06da3e3817268e500ad931e26edee062e70c5.jpg">
+        <div class="image-text" id="five1">une grand-mère (a grandma)</div>
+      </div>
+      <div class="image-single">
+        <img id="img16" alt="un grand-père" data-id="d7a3ef0dc138cb7a9c7504d73c970ca59718157a.jpg">
+        <div class="image-text" id="six1">un grand-père (a grandpa)</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="button-space">
+    <button id="buttonIDOne" class="button" style="vertical-align:middle"><span>Next </span></button>
+	<button id="buttonCloseIDOne" class="buttonClose" style="vertical-align:middle"><span>Close </span></button>
+  </div>
+</div>
+
+
