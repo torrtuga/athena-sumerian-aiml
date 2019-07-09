@@ -4,16 +4,23 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 from flask import Flask,request
 import sys
 from flask_cors import CORS
+import pymysql
+import json
 
 app = Flask(__name__)
 CORS(app)
 analyser = SentimentIntensityAnalyzer()
 k = aiml.Kernel()
+rds_host = "database-1-instance-1.cuxhu3zthg2p.us-east-1.rds.amazonaws.com"
+name = "admin"
+password = "admin123"
+db_name = "Users"
 
 class DataStore():
         BRAIN_FILE="brain.dump"
         SENTIMENT_ANALYSIS = 0
         SENTIMENT_ANALYSIS_FLAG = 0
+        # conn = pymysql.connect(rds_host,user=name,passwd=password,db=db_name,connect_timeout=5)
 
 data = DataStore()
 
@@ -81,10 +88,101 @@ def chat_model():
 
         return response
 
-@app.route('/sql')
-def chat_sql():
-    output = "route working"
-    return output
+
+# @app.route('/sql_insert')
+# def write_sql(): 
+#     conn = data.conn
+#     placeholder = "completed"
+#     with conn.cursor() as cur:
+#         cur.execute('INSERT INTO UserRecord (name,id,progress) VALUES ("dummy1","base64","begin")')
+#         conn.commit()
+#     return placeholder
+
+# @app.route('/sql_read')
+# def read_sql():
+#     conn = data.conn
+#     placeholder = "empty"
+#     with conn.cursor() as cur:
+#         cur.execute("SELECT * FROM UserRecord")
+#         for row in cur:
+#             placeholder = str(row)
+#             print(row)
+#     conn.commit()
+#     return placeholder
+
+@app.route('/file_read')
+def file_read():
+    user_name = request.args.get('name')
+    print(user_name)
+    file = open('data.json')
+    json_data = json.load(file)
+
+    stud_list = json_data['Data']
+    progress = "default"
+    for var in stud_list:
+        if user_name == var['name']:
+            progress = var['progress']
+            break;
+        else:
+            print(var['name'])
+    return progress
+
+@app.route('/file_insert')
+def file_insert():
+    user_name = request.args.get('name')
+    print(user_name)
+    obj = {
+        "name": user_name,
+        "progress": "default"
+    }
+    file = open('data.json')
+    json_data = json.load(file)
+    stud_list = json_data['Data']
+    stud_list.append(obj)
+    with open('data.json','w') as f:
+        f.write(json.dumps(json_data))
+    return "success"
+
+@app.route('/file_edit')
+def file_edit():
+    data = request.args.get('data')
+    print(data)
+    inputArray = data.split("111000")
+    name = inputArray[0]
+    progress = inputArray[1]
+    print(name)
+    print(progress)
+    file = open('data.json')
+    json_data = json.load(file)
+
+    stud_list = json_data['Data']
+    for var in stud_list:
+        if name == var['name']:
+            var['progress'] = progress;
+            break;
+
+    with open('data.json','w') as f:
+        f.write(json.dumps(json_data));
+
+    return "success"
+
+@app.route('/kernel_reset')
+def kernel_reset():
+    k.bootstrap(learnFiles="std-startup.aiml",commands="load aiml b")
+    return "success"
+
+@app.route('/sentiment')
+def sentiment_userResponse():
+    userResponse = request.args.get('user-sentiment')
+    interimResult = get_sentiment_scores(userResponse)
+    if interimResult == "xxx" or interimResult == "xxy":
+        return "neg"
+    else:
+        return "pos"
+
+
+
+
 
 if __name__ == "__main__":
         print("Parsing aiml files")
